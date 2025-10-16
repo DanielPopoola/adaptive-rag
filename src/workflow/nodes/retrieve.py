@@ -1,5 +1,5 @@
 from typing import Any, Dict
-from src.workflow.state import GraphState
+from workflow.state import GraphState
 from data.ingestion import retriever
 
 

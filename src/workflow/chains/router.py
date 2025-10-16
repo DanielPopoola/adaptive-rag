@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__)))))
-from src.models.model import llm_model
+from models.model import llm_model
 
 
 class RouteQuery(BaseModel):

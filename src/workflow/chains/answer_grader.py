@@ -1,7 +1,7 @@
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnableSequence
 from pydantic import BaseModel, Field
-from src.models.model import llm_model
+from models.model import llm_model
 
 class GradeAnswer(BaseModel):
 

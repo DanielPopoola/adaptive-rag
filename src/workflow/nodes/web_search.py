@@ -2,7 +2,7 @@ from typing import Any, Dict
 from dotenv import load_dotenv
 from langchain.schema import Document
 from langchain_tavily import TavilySearch
-from src.workflow.state import GraphState
+from workflow.state import GraphState
 
 
 load_dotenv()

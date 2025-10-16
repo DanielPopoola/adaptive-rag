@@ -1,6 +1,6 @@
 from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
-from src.models.model import llm_model
+from models.model import llm_model
 
 
 class GradeDocuments(BaseModel):
@@ -11,9 +11,17 @@ class GradeDocuments(BaseModel):
 llm = llm_model
 structured_llm_grader = llm.with_structured_output(GradeDocuments)
 
-system = """You are a grader assessing relevance of a retrieved document to a user question. \n 
-    If the document contains keyword(s) or semantic meaning related to the question, grade it as relevant. \n
-    Give a binary score 'yes' or 'no' score to indicate whether the document is relevant to the question."""
+system = """You are a strict grader assessing relevance of a retrieved document to a user question.
+
+The document must DIRECTLY address the user's question to be considered relevant.
+Do NOT grade as relevant if:
+- The document only shares a general topic area
+- There is only tangential or indirect connection
+- The document cannot help answer the specific question asked
+
+Only grade as relevant if the document contains information that directly helps answer the question.
+
+Give a binary score 'yes' or 'no'."""
 
 grade_prompt = ChatPromptTemplate.from_messages(
     [
