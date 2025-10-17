@@ -36,7 +36,7 @@ User Question
 ## 📁 Project Structure
 
 ```
-building-adaptive-rag/
+adaptive-rag/
 ├── src/
 │   ├── workflow/              # Core workflow logic
 │   │   ├── chains/            # LLM processing chains
@@ -78,8 +78,8 @@ building-adaptive-rag/
 
 1. **Clone the repository**
 ```bash
-git clone <your-repo-url>
-cd building-adaptive-rag
+git clone git@github.com:DanielPopoola/adaptive-rag.git
+cd adaptive-rag
 ```
 
 2. **Install UV (if not already installed)**
@@ -167,8 +167,8 @@ The system currently uses Google Gemini, but you can easily switch to other prov
 # In src/models/model.py
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 
-llm_model = ChatOpenAI(model="gpt-4o", temperature=0)
-embed_model = OpenAIEmbeddings(model="text-embedding-3-small")
+llm_model = ChatOpenAI(model="gemini-2.5-flash", temperature=0)
+embed_model = OpenAIEmbeddings(model="models/text-embedding-004")
 ```
 
 **AWS Bedrock:**
